@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer src="main.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+ <div class="container">
+        <nav class="timeDate">
+           <span id="clock"></span> 
+           <span id="date"></span>
+        </nav>
+
+        <h1 class=" big title"  contenteditable="true">This is a Dashboard</h1>
+   
+
+    <!-- Dashboard title, check how to make it modifiable -->
+    <div class="dashboardContainer">
+        
+        <div class="dashboardBox">
+            <h1 class="title">Favorites</h1>
+           
+            <button class="newLink"> + New Link</button>
+        </div>
+        <div class="dashboardBox">
+            <h1 class="title">Weather</h1>
+        </div>
+        <div class="dashboardBox"></div>
+        <div class="dashboardBox">
+            <h1 class="title">Notes</h1>
+            <textarea name="" id="notes" cols="30" rows="25"></textarea>
+        </div>
+    </div>
+    <button class="changeBackground">Change Background!</button>
+</div>
+</body>
+</html>
