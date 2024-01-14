@@ -42,7 +42,7 @@ quote.textContent = response.data[0].q;
 
       
 
-showQuote();
+// showQuote();
       
 
 
