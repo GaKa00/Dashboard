@@ -10,7 +10,7 @@ import { getQuote } from './js/quotes.js';
 getQuote();
 
 
-
+import { showQuote } from './js/quotes.js';
 
 
 
