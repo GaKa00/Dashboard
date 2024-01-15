@@ -59,6 +59,10 @@
     height: 35vh;
     width: 17rem;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+   
 }
 
 .dashCard {
@@ -74,10 +78,12 @@
     font-size: 1rem;
 }
 
+
+
+
 #notes {
-    position: absolute;
-    margin-top: 10px;
-    margin-left: 25px;
+   
+    margin: 15px;
     border-radius: 5px;
     border: none;
 }

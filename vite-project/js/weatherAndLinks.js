@@ -3,16 +3,13 @@ export function addNewLink() {
     
 
     favoriteLinks.push(favorite);
-    favoriteLinks.forEach(link => {
-       createDashcard(link);
+       createDashcard(favorite);
        
-    });
+    
 
 };
 
 function createDashcard(link) {
-
-    dashBox1.innerHTML = '';
   const newCard = document.createElement('div')
   newCard.classList.add('dashCard')
 
@@ -22,7 +19,7 @@ function createDashcard(link) {
         favlink.textContent = `${link}`;
         
         newCard.append(favlink);
-        dashBox1.append(newCard)
+        dashBox1.insertBefore(newCard, button);
 
   
 }
@@ -30,3 +27,4 @@ function createDashcard(link) {
 const favoriteLinks =[];
 
 const dashBox1 = document.querySelector('.dashboardBox')
+const button = document.querySelector('.newLink');

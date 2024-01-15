@@ -8,7 +8,7 @@ export async function getQuote(url) {
     
     console.log(response.data);  
   } catch (error) {
-    console.error('Error fetching quotes:', error.message);
+    console.error('Error fetching quote:', error.message);
   }
 }
 
@@ -27,8 +27,8 @@ getQuote(dailyQuoteUrl);
  const thirdDashboardBox = document.querySelector('.dashboardContainer .dashboardBox:nth-child(3)')
     
  if (thirdDashboardBox) {
-quote.textContent = response.data[0].q;
-        author.textContent = response.data[0].a;
+quote.textContent = response.data.q;
+        author.textContent = response.data.a;
 
         thirdDashboardBox.append(newCard)
         newCard.append(quote);
