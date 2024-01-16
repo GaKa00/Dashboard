@@ -5,46 +5,35 @@ setBackground()
 
 import { addNewLink } from './js/weatherAndLinks.js';
 
+import {changeLink } from './js/weatherAndLinks.js';
+
+import {deleteLink  } from './js/weatherAndLinks.js';
+
 
 import { getQuote } from './js/quotes.js';
 getQuote();
 
 
-import { showQuote } from './js/quotes.js';
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//Button functions
 
 const linkButton = document.querySelector('.newLink');
+const changeButton = document.querySelector('.changeLink');
+const deleteButton = document.querySelector('.delete');
+
+changeButton.addEventListener('click', () => {
+  changeLink();  
+});
 
 linkButton.addEventListener('click', () => {
     addNewLink();
-   
+});
+
+
+deleteButton.addEventListener('click', () => {
+    deleteLink();
+
 });
 
