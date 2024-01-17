@@ -9,6 +9,9 @@ import {changeLink } from './js/weatherAndLinks.js';
 
 import {deleteLink  } from './js/weatherAndLinks.js';
 
+import { getLocation } from './js/weatherAndLinks.js';
+getLocation();
+
 
 import { getQuote } from './js/quotes.js';
 getQuote();

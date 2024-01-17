@@ -55,11 +55,11 @@ import axios from 'axios';
 
 
 
-window.addEventListener('DOMContentLoaded', () => {
-    // setBackground();
-    displayTimeDate();
-    setInterval(displayTimeDate,1000);
-});
+// window.addEventListener('DOMContentLoaded', () => {
+//     // setBackground();
+//     displayTimeDate();
+//     setInterval(displayTimeDate,1000);
+// });
 
 
 

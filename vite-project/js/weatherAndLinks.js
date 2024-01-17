@@ -8,8 +8,7 @@ export function addNewLink() {
     favoriteLinks.push(favorite);
        createDashcard(favorite);
        
-    
-
+  
 };
 //function creates an empty div with dashcard class (see css file)
 // then appends a link to the div, appenind it to the dashboardbox
@@ -84,5 +83,32 @@ export function changeLink() {
    )
   
  }
+ 
 
+//
+ // Weather API
+//
+
+let Coords = {
+  lat: null,
+  log: null
+}
+const weatherAtLocation = `https://api.openweathermap.org/data/3.0/onecall?lat=${Coords.lat}&lon=${Coords.log}&appid=${APIkey}`
+const APIkey = "b37bfa9e35e50f1539c8080b98805627"
+
+
+  export function getLocation () {
+  navigator.geolocation.getCurrentPosition(function(position){
+Coords.lat = position.coords.latitude;
+Coords.log = position.coords.longitude;
+  })
+  getWeather();
+ }
+async function getWeather() {
+    try {
+        const response = await axios.get(weatherAtLocation);
+        console.log(response.data)
+    } catch (error) { console.error('Data could not be loaded:', error.message); 
+  }
+}
 
