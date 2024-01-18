@@ -1,4 +1,5 @@
 
+
 //forms a prompt, asking for a website name. ie. google.
 //prompt answer is then pushed into empty array, which is then used t make a card, linking to the webpage.
 export function addNewLink() {
@@ -93,18 +94,23 @@ let Coords = {
   lat: null,
   log: null
 }
-const weatherAtLocation = `https://api.openweathermap.org/data/3.0/onecall?lat=${Coords.lat}&lon=${Coords.log}&appid=${APIkey}`
+
 const APIkey = "b37bfa9e35e50f1539c8080b98805627"
 
 
   export function getLocation () {
-  navigator.geolocation.getCurrentPosition(function(position){
+navigator.geolocation.getCurrentPosition(function(position){
 Coords.lat = position.coords.latitude;
 Coords.log = position.coords.longitude;
-  })
   getWeather();
+  })
  }
 async function getWeather() {
+  let lat = Coords.lat;
+  let log = Coords.log;
+  
+const weatherAtLocation = `https://api.openweathermap.org/data/2.5/weather?q=stockholm&units=metric&appid=${APIkey}`
+// `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${log}&appid=${APIkey}`
     try {
         const response = await axios.get(weatherAtLocation);
         console.log(response.data)

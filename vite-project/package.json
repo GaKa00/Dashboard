@@ -13,5 +13,9 @@
   },
   "dependencies": {
     "axios": "^1.6.5"
-  }
+  },
+  "main": "main.js",
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }

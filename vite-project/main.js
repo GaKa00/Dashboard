@@ -1,7 +1,7 @@
 import{ displayTimeDate } from './js/script.js';
 displayTimeDate();
 import { setBackground } from './js/script.js';
-setBackground()
+//  setBackground()
 
 import { addNewLink } from './js/weatherAndLinks.js';
 
@@ -14,7 +14,7 @@ getLocation();
 
 
 import { getQuote } from './js/quotes.js';
-getQuote();
+// getQuote();
 
 
 
