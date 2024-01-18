@@ -114,7 +114,32 @@ const weatherAtLocation = `https://api.openweathermap.org/data/2.5/weather?q=sto
     try {
         const response = await axios.get(weatherAtLocation);
         console.log(response.data)
+        createWeatherCard(response.data);
     } catch (error) { console.error('Data could not be loaded:', error.message); 
   }
+}
+
+
+function createWeatherCard(weatherData) {
+    // Assuming you have an HTML element with the id "weatherCard" to render the card
+    const weatherCardContainer = document.getElementById('weatherCard');
+
+    // Create HTML elements for the weather card content
+    const cityName = document.createElement('h2');
+    cityName.textContent = weatherData.name;
+
+    const temperature = document.createElement('p');
+    temperature.textContent = `Temperature: ${weatherData.main.temp} °C`;
+
+    const description = document.createElement('p');
+    description.textContent = `Weather: ${weatherData.weather[0].description}`;
+
+    // Clear previous content if any
+    weatherCardContainer.innerHTML = '';
+
+    // Append the created elements to the card container
+    weatherCardContainer.appendChild(cityName);
+    weatherCardContainer.appendChild(temperature);
+    weatherCardContainer.appendChild(description);
 }
 
