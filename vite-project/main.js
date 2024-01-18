@@ -1,7 +1,7 @@
 import{ displayTimeDate } from './js/script.js';
 displayTimeDate();
 import { setBackground } from './js/script.js';
-//  setBackground()
+ setBackground()
 
 import { addNewLink } from './js/weatherAndLinks.js';
 
@@ -9,12 +9,14 @@ import {changeLink } from './js/weatherAndLinks.js';
 
 import {deleteLink  } from './js/weatherAndLinks.js';
 
-import { getLocation } from './js/weatherAndLinks.js';
-getLocation();
+import { getWeatherForecast } from './js/weatherAndLinks.js';
+getWeatherForecast()
+
+
 
 
 import { getQuote } from './js/quotes.js';
-// getQuote();
+getQuote();
 
 
 

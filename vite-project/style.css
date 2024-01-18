@@ -20,22 +20,28 @@
      
     
 }
+.timeDate{
+    display: flex;
+  align-items:  center;
+  justify-content: center;
+  gap: 0.5em;
+}
 
 #clock{
     
     text-align: start;
     font-size: 1.3rem;
-    margin-left: 5%;
-    padding: 10px;
     font-weight: 700;
-    width: 0%;
+    
+   
 }
 
-.date {
+#date {
   
     text-align: right;
     font-weight: 400;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
+   
 }
 
 .title {
@@ -68,7 +74,7 @@ height: 20vh;
 
   
 
-.dashCard, #weatherCard {
+.dashCard, .weatherCard {
     height: 2rem;
     width: 15rem;
     margin: 17px;
@@ -82,9 +88,23 @@ height: 20vh;
     font-size: 1rem;
 }
 
-#weatherCard {
+.weatherCard {
     height: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-end;
 
+}
+
+.temp , .weather {
+   margin-right: 5%;
+   font-size: 1.1rem;
+   
+}
+
+.weather {
+    font-weight: 550;
 }
 
 

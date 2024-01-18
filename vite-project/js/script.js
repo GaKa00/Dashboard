@@ -17,12 +17,8 @@ export function displayTimeDate(){
     let min  =timeDate.getMinutes()
     let year = timeDate.getFullYear()
 
-    
-
     hour = (hour < 10) ? "0" + hour : hour;
     min = (min < 10) ? "0" + min : min;
-
-
     let date = timeDate.getDate()
     let month = timeDate.toLocaleString('en-US', { month: 'long' });
     
@@ -40,14 +36,14 @@ import axios from 'axios';
     try {
         const response = await axios.get(randomImage);
         const imageUrl = response.data.urls.regular;
-        console.log(response.data)
+       
 
         document.body.style.backgroundPosition = 'center';
         document.body.style.backgroundSize = 'cover';
         document.body.style.backgroundImage = `url(${imageUrl})`;
         document.body.style.backgroundAttachment = 'fixed';
 
-        console.log(response.data);
+        
     } catch (error) {
         console.error('Image could not be loaded:', error.message);
     }
