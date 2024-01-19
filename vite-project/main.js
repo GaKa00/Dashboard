@@ -9,14 +9,17 @@ import {changeLink } from './js/weatherAndLinks.js';
 
 import {deleteLink  } from './js/weatherAndLinks.js';
 
+import { loadLinks } from './js/weatherAndLinks.js';
+loadLinks()
+
 import { getWeatherForecast } from './js/weatherAndLinks.js';
 getWeatherForecast()
 
-
-
-
 import { getQuote } from './js/quotes.js';
 getQuote();
+
+import { saveNotes } from "./js/script.js";
+saveNotes();
 
 
 

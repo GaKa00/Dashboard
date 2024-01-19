@@ -5,9 +5,13 @@ import axios from 'axios';
 export function addNewLink() {
     const favorite = prompt('Enter Link Name, I.e "Google", "Facebook" etc.');
     
-
-    favoriteLinks.push(favorite);
+        favoriteLinks.push({
+        href: `https://www.${favorite}.com`,
+        textContent: favorite
+    });
+    // favoriteLinks.push(favorite);
        createDashcard(favorite);
+      
        
   
 };
@@ -27,13 +31,15 @@ else {
         favlink.textContent = `${link}`;
         
         newCard.append(favlink);
-        dashBox1.insertBefore(newCard, button);
+        dashBox1.append(newCard);
+        console.log(favoriteLinks);
+         saveLinks();
 }
 
   
 }
 
-const favoriteLinks =[];
+const favoriteLinks = storeLinks();
 
 const dashBox1 = document.querySelector('.dashboardBox')
 const button = document.querySelector('.newLink');
@@ -44,11 +50,13 @@ const button = document.querySelector('.newLink');
 
 export function changeLink() {
    alert("Select the faulty link that you wish to change by clicking on it's card")
+     let changeLock = true;
    dashBox1.addEventListener('click', () => {
     const selectedLink = event.target;
-    if (selectedLink.classList.contains('dashCard')) {
-            
+    if (selectedLink.classList.contains('dashCard') && changeLock) {
             change(selectedLink);
+            changeLock= false
+            
         }
 
    })
@@ -61,6 +69,7 @@ export function changeLink() {
     if (linkElement) {
         linkElement.href = `${updatedLink}`;
         linkElement.textContent = updatedName;
+        saveLinks();
     }
   
 
@@ -71,11 +80,15 @@ export function changeLink() {
  //add a button that deletes the attached link from the dashboardbox
  export function deleteLink() {
   alert("Select the link that you wish to delete by clicking on it's card")
+  let deleteLock = true
   dashBox1.addEventListener('click', () => {
     const selectedCard = event.target;
 
-    if (selectedCard.classList.contains('dashCard')) {
+    if (selectedCard.classList.contains('dashCard') && deleteLock) {
             selectedCard.parentNode.removeChild(selectedCard);
+            deleteLock = false;
+            saveLinks();
+           
         }
           else{
             return;
@@ -84,6 +97,36 @@ export function changeLink() {
    )
   
  }
+
+
+
+
+
+ //Saves link by local storage
+ 
+  function saveLinks(){
+   localStorage.setItem("LinkData", JSON.stringify(favoriteLinks) );}
+   console.log(favoriteLinks);
+   function storeLinks() {
+  const storedLinks = localStorage.getItem('LinkData');
+  return JSON.parse(storedLinks) || [];
+}
+
+ function initializeDashboard() {
+ 
+  const storedLinks = storeLinks();
+  console.log(storedLinks);
+  storedLinks.forEach(link => {
+    createDashcard(link.textContent);
+  });
+}
+
+ export function loadLinks() { 
+  document.addEventListener('DOMContentLoaded', initializeDashboard);
+
+}
+    
+
  
 
 //
@@ -94,7 +137,6 @@ export function changeLink() {
 
 
 
-const weatherCard = document.getElementById('weatherCard');
 const APIkey = "7232d8219f4634164c47de963a16e583"
 const locationName = document.querySelector('.locationName');
 
