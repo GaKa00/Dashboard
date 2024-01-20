@@ -2,6 +2,9 @@
 import axios from 'axios';
 //forms a prompt, asking for a website name. ie. google.
 //prompt answer is then pushed into empty array, which is then used t make a card, linking to the webpage.
+
+
+let favoriteLinks 
 export function addNewLink() {
     const favorite = prompt('Enter Link Name, I.e "Google", "Facebook" etc.');
     
@@ -11,6 +14,7 @@ export function addNewLink() {
     });
     // favoriteLinks.push(favorite);
        createDashcard(favorite);
+       saveLinks();
       
        
   
@@ -27,19 +31,22 @@ if (favoriteLinks.length > 7) {
 }
 else {
   const  favlink = document.createElement('a');
-        favlink.href = `https://www.${link}.com`;
-        favlink.textContent = `${link}`;
+        favlink.href = link.href;
+        // `https://www.${link}.com`;
+        favlink.textContent =  link.textContent;
+        // `${link}`;
         
         newCard.append(favlink);
         dashBox1.append(newCard);
-        console.log(favoriteLinks);
          saveLinks();
+       
+         
 }
 
-  
+ 
 }
 
-const favoriteLinks = storeLinks();
+
 
 const dashBox1 = document.querySelector('.dashboardBox')
 const button = document.querySelector('.newLink');
@@ -69,10 +76,10 @@ export function changeLink() {
     if (linkElement) {
         linkElement.href = `${updatedLink}`;
         linkElement.textContent = updatedName;
-        saveLinks();
+       
     }
   
-
+ saveLinks();
   }
  
 
@@ -85,15 +92,23 @@ export function changeLink() {
     const selectedCard = event.target;
 
     if (selectedCard.classList.contains('dashCard') && deleteLock) {
+
+      const linkIndex = Array.from(dashBox1.children).indexOf(selectedCard);
+        favoriteLinks.splice(linkIndex, 1);
+         
             selectedCard.parentNode.removeChild(selectedCard);
+            console.log(favoriteLinks);
+           saveLinks();
             deleteLock = false;
-            saveLinks();
+
            
         }
           else{
             return;
 
-   }}
+   }
+
+           }
    )
   
  }
@@ -106,18 +121,18 @@ export function changeLink() {
  
   function saveLinks(){
    localStorage.setItem("LinkData", JSON.stringify(favoriteLinks) );}
-   console.log(favoriteLinks);
+   
    function storeLinks() {
   const storedLinks = localStorage.getItem('LinkData');
   return JSON.parse(storedLinks) || [];
 }
 
- function initializeDashboard() {
- 
-  const storedLinks = storeLinks();
-  console.log(storedLinks);
-  storedLinks.forEach(link => {
-    createDashcard(link.textContent);
+function initializeDashboard() {
+  favoriteLinks = storeLinks();
+
+  console.log(favoriteLinks);
+  favoriteLinks.forEach(link => {
+    createDashcard(link); 
   });
 }
 

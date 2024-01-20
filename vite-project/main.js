@@ -18,11 +18,25 @@ getWeatherForecast()
 import { getQuote } from './js/quotes.js';
 getQuote();
 
-import { saveNotes } from "./js/script.js";
-saveNotes();
 
 
 
+
+//Store notes
+
+const notes = document.querySelector('.notes');
+loadNotes();
+
+notes.addEventListener('input', saveNotes);
+
+function saveNotes() {
+    localStorage.setItem("noteData", notes.value);
+}
+
+function loadNotes() {
+    const storedNotes = localStorage.getItem('noteData');
+    notes.value = storedNotes || '';
+}
 
 
 //Button functions

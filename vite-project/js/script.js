@@ -66,8 +66,5 @@ changeImage.addEventListener('click', ()=> {
     location.reload();
 });
 
-const notes = document.querySelector('.notes');
- export function saveNotes(){
-   localStorage.setItem("noteData", notes.textContent);
-}
-    
+
+
