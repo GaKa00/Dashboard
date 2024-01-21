@@ -38,6 +38,21 @@ function loadNotes() {
     notes.value = storedNotes || '';
 }
 
+//Store title
+
+const mainTitle = document.querySelector('.big');
+loadTitle();
+
+mainTitle.addEventListener('input', saveTitle);
+
+function saveTitle() {
+    localStorage.setItem("titleData",mainTitle.value);
+}
+
+function loadTitle() {
+    const storedNotes = localStorage.getItem('titleData');
+   mainTitle.value = storedNotes || '';
+}
 
 //Button functions
 
