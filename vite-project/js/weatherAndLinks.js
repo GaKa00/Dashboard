@@ -188,170 +188,136 @@ function getCurrentLocation() {
     });
 }
 
+
+
+
+
 function appendData(data) {
-  data.map((day) => {
-    const secondDashboardBox = document.querySelector('.dashboardContainer .dashboardBox:nth-child(2)')
+  const days = ['Today', 'Tomorrow', getDayAfterTomorrow()];
+
+  data.forEach((day, index) => {
+    const secondDashboardBox = document.querySelector('.dashboardContainer .dashboardBox:nth-child(2)');
     const weatherCard = document.createElement('div');
     weatherCard.classList.add('weatherCard');
 
     const temp = document.createElement('p');
-    temp.textContent= day.main.temp + '°C';
+    temp.textContent = day.main.temp + '°C';
     temp.classList.add('temp');
-    
 
     const weather = document.createElement('p');
-    weather.textContent =  day.weather[0].main;
+    weather.textContent = day.weather[0].main;
     weather.classList.add('weather');
 
-
+    const dayLabel = document.createElement('p');
+    dayLabel.textContent = days[index];
+    dayLabel.classList.add('dayLabel');
 
     secondDashboardBox.appendChild(weatherCard);
+    weatherCard.appendChild(dayLabel);
     weatherCard.appendChild(weather);
     weatherCard.appendChild(temp);
-    
-
-
-    
-    
-  })
-
-
-
-
+  });
 }
 
+function getDayAfterTomorrow() {
+  const currentDate = new Date();
+  const dayAfterTomorrow = new Date(currentDate);
+  dayAfterTomorrow.setDate(currentDate.getDate() + 2);
+
+  const options = { weekday: 'long' }; 
+
+  return dayAfterTomorrow.toLocaleDateString('en-US', options);
+}
+// function appendData(data) {
+//   data.map((day) => {
+//     const secondDashboardBox = document.querySelector('.dashboardContainer .dashboardBox:nth-child(2)')
+//     const weatherCard = document.createElement('div');
+//     weatherCard.classList.add('weatherCard');
+
+//     const temp = document.createElement('p');
+//     temp.textContent= day.main.temp + '°C';
+//     temp.classList.add('temp');
+    
+
+//     const weather = document.createElement('p');
+//     weather.textContent =  day.weather[0].main;
+//     weather.classList.add('weather');
+
+
+
+//     secondDashboardBox.appendChild(weatherCard);
+//     weatherCard.appendChild(weather);
+//     weatherCard.appendChild(temp);
+    
+
+
+    
+    
+//   })
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const APIkey = "7232d8219f4634164c47de963a16e583"
-// let Coords = {
-//   lat: null,
-//   log: null
 // }
 
 
-// export function getLocation() {
-//     return new Promise((resolve, reject) => {
-//         navigator.geolocation.getCurrentPosition(
-//             (position) => {
-//                 Coords.lat = position.coords.latitude;
-//                 Coords.log = position.coords.longitude;
-//                 resolve();
-//             },
-//             (error) => {
-//                 reject(error);
-//             }
-//         );
-//     });
-// }
 
 
-// async function fetchData() {
-//     try {
-//         await getLocation();
-//         await getWeather();
-//     } catch (error) {
-//         console.error('Error getting location:', error.message);
-//     }
-// }
-
-// fetchData();
-
-// async function getWeather() {
-//   let lat = Coords.lat;
-//   let log = Coords.log;
-  
-// const weatherAtLocation = `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${log}&appid=${APIkey}`
-// // `https://api.openweathermap.org/data/2.5/weather?q=stockholm&units=metric&appid=${APIkey}`
-// // `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${log}&appid=${APIkey}`
-//     try {
-//         const response = await axios.get(weatherAtLocation);
-//         createWeatherCard(response.data);
-//     } catch (error) { console.error('Data could not be loaded:', error.message); 
-//   }
-// }
 
 
-// function createWeatherCard(weatherData) {
-//     // Assuming you have an HTML element with the id "weatherCard" to render the card
-//     const weatherCardContainer = document.getElementById('weatherCard');
 
-//     // Create HTML elements for the weather card content
-//     const cityName = document.createElement('h2');
-//     cityName.textContent = weatherData.name;
 
-//     const temperature = document.createElement('p');
-//     temperature.textContent = `Temperature: ${weatherData.main.temp} °C`;
 
-//     const description = document.createElement('p');
-//     description.textContent = `Weather: ${weatherData.weather[0].description}`;
 
-//     // Clear previous content if any
-//     weatherCardContainer.innerHTML = '';
 
-//     // Append the created elements to the card container
-//     weatherCardContainer.appendChild(cityName);
-//     weatherCardContainer.appendChild(temperature);
-//     weatherCardContainer.appendChild(description);
-// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
