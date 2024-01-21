@@ -46,12 +46,12 @@ loadTitle();
 mainTitle.addEventListener('input', saveTitle);
 
 function saveTitle() {
-    localStorage.setItem("titleData",mainTitle.value);
+    localStorage.setItem("titleData",mainTitle.textContent);
 }
 
 function loadTitle() {
     const storedNotes = localStorage.getItem('titleData');
-   mainTitle.value = storedNotes || '';
+   mainTitle.textContent = storedNotes || 'This is a Dashboard';
 }
 
 //Button functions

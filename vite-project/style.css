@@ -7,7 +7,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-evenly;
+    gap: 5rem;
     
+}
+
+.middleContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 5rem;
 }
 
 .timeDate , .changeBackground, .dashboardBox {
@@ -25,6 +35,7 @@
   align-items:  center;
   justify-content: center;
   gap: 0.5em;
+  margin-top: 2rem;
 }
 
 #clock{
@@ -92,7 +103,7 @@ height: 20vh;
     height: 4rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: flex-end;
 
 }
@@ -100,13 +111,21 @@ height: 20vh;
 .temp , .weather {
    margin-right: 5%;
    font-size: 1.1rem;
+   width: min-content;
    
 }
 
-.weather {
+
+.weather, .dayLabel {
     font-weight: 550;
 }
 
+.dayLabel {
+    align-self: flex-start;
+   font-size: 1.5rem;
+margin-left: 5%;
+   height: min-content;
+}
 
 
 

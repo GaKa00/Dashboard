@@ -11,6 +11,8 @@ Krav:
     https://openweathermap.org
     https://zenquotes.io 
     https://unsplash.com/developers 
+Extension för Cors.
+    Exempel:
 
 
 
@@ -93,6 +95,7 @@ Krav:
         Anledningen till därför det står Today, Tomorrow och datumet iövermorron istället för väder ikoner, är för att ikonerna ej gick att hämta ut ifrån väder apiet.  Om detta är pga apiets begränsningar eller programmerarens bristande kunskap är oklart.  Därför, för att ge väden sektionen en mer slutgiltig touch, har texten inplementerats i väderkorten.
  
     Länkarnas kod
+
 
 
 
